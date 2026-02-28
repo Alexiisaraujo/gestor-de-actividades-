@@ -1,0 +1,154 @@
+/* ================= VARIABLES GLOBALES ================= */
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --accent: #3b82f6;
+    --accent-dark: #1d4ed8;
+    --success: #22c55e;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    padding: 20px;
+}
+
+/* ================= HEADER ================= */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header-controls {
+    display: flex;
+    gap: 10px;
+}
+
+select {
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    background: var(--card);
+    color: white;
+}
+
+/* ================= BOTONES ================= */
+button {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.primary-btn {
+    background: var(--accent);
+    color: white;
+}
+
+.primary-btn:hover {
+    background: var(--accent-dark);
+}
+
+.secondary-btn {
+    background: #334155;
+    color: white;
+}
+
+.secondary-btn:hover {
+    background: #475569;
+}
+
+/* ================= TARJETAS ================= */
+.card {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    margin-bottom: 20px;
+}
+
+.meta-text {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 15px;
+}
+
+/* ================= PASOS ================= */
+.step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.sub-step {
+    margin-left: 30px;
+}
+
+/* Checkbox profesional personalizado */
+.step input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent);
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+.step input[type="checkbox"]:checked {
+    background: var(--success);
+    border-color: var(--success);
+}
+
+.step input[type="checkbox"]:checked::after {
+    content: "✓";
+    color: white;
+    font-size: 14px;
+}
+
+/* ================= PROGRESO ================= */
+.progress-wrapper {
+    margin-top: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #334155;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#progressFill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--success), #16a34a);
+    transition: width 0.3s ease;
+}
+
+#progressText {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* ================= UTILIDADES ================= */
+.hidden {
+    display: none;
+}
