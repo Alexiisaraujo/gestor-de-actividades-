@@ -1,83 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor de Actividades Pro</title>
-
-    <!-- Google Font moderna -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <!-- Archivo de estilos separado -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>App de Actividades</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <!-- ================= HEADER ================= -->
-    <!-- Selector de actividad fija + navegación -->
+  <div class="app">
+
+    <!-- HEADER -->
     <header class="app-header">
-        <h1>Gestor de Actividades</h1>
-
-        <div class="header-controls">
-            <!-- Selector de actividad actual (queda guardada en localStorage) -->
-            <select id="activitySelector"></select>
-
-            <!-- Botones de navegación -->
-            <button id="btnCreate" class="primary-btn">Nueva</button>
-            <button id="btnHistory" class="secondary-btn">Historial</button>
-        </div>
+      <div class="logo-box">
+        <img src="logo.png" class="logo" alt="Logo" />
+        <h1>Mi Progreso</h1>
+      </div>
+      <select id="activitySelector"></select>
     </header>
 
-    <!-- ================= VISTA PRINCIPAL ================= -->
-    <main id="mainView" class="view">
+    <!-- MAIN VIEW -->
+    <section id="mainView" class="view">
+      <div class="card">
+        <h2 id="activityTitle"></h2>
+        <p id="activityMeta" class="meta"></p>
+        <div id="stepsContainer"></div>
 
-        <!-- Tarjeta de actividad activa -->
-        <section class="card">
-            <h2 id="activityTitle">Selecciona una actividad</h2>
+        <div class="progress">
+          <div class="progress-bar">
+            <div id="progressFill"></div>
+          </div>
+          <span id="progressText"></span>
+        </div>
+      </div>
+    </section>
 
-            <!-- Información de fechas -->
-            <p id="activityMeta" class="meta-text"></p>
-
-            <!-- Contenedor dinámico de pasos -->
-            <div id="stepsContainer"></div>
-
-            <!-- Barra de progreso -->
-            <div class="progress-wrapper">
-                <div class="progress-bar">
-                    <div id="progressFill"></div>
-                </div>
-                <span id="progressText"></span>
-            </div>
-        </section>
-    </main>
-
-    <!-- ================= CREAR ACTIVIDAD ================= -->
+    <!-- CREATE VIEW -->
     <section id="createView" class="view hidden">
-        <div class="card">
-            <h2>Nueva Actividad</h2>
-
-            <input type="text" id="newActivityName" placeholder="Nombre de la actividad">
-
-            <div id="builderContainer"></div>
-
-            <button id="addStepBtn" class="secondary-btn">+ Agregar Paso</button>
-            <button id="saveActivityBtn" class="primary-btn">Guardar Actividad</button>
-        </div>
+      <div class="card">
+        <h2>Nueva Actividad</h2>
+        <input id="newActivityName" placeholder="Nombre de la actividad" />
+        <div id="builderContainer"></div>
+        <button id="addStepBtn" class="secondary">+ Paso</button>
+        <button id="saveActivityBtn" class="primary">Guardar</button>
+      </div>
     </section>
 
-    <!-- ================= HISTORIAL ================= -->
+    <!-- HISTORY VIEW -->
     <section id="historyView" class="view hidden">
-        <div class="card">
-            <h2>Historial de Actividades</h2>
-            <div id="historyList"></div>
-
-            <!-- Editor dinámico -->
-            <div id="editContainer" class="hidden"></div>
-        </div>
+      <div class="card">
+        <h2>Historial</h2>
+        <div id="historyList"></div>
+        <div id="editContainer" class="hidden"></div>
+      </div>
     </section>
 
-    <!-- Archivo JS separado -->
-    <script src="script.js"></script>
+    <!-- NAV -->
+    <div class="nav">
+      <button id="btnHome" class="secondary">Inicio</button>
+      <button id="btnCreate" class="primary">Nueva</button>
+      <button id="btnHistory" class="secondary">Historial</button>
+    </div>
 
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
