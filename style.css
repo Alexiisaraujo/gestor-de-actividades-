@@ -1,154 +1,195 @@
-/* ================= VARIABLES GLOBALES ================= */
-:root {
-    --bg: #0f172a;
-    --card: #1e293b;
-    --accent: #3b82f6;
-    --accent-dark: #1d4ed8;
-    --success: #22c55e;
-    --text: #f1f5f9;
-    --muted: #94a3b8;
-}
-
-/* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-    background: var(--bg);
-    color: var(--text);
-    padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(rgba(10,15,25,0.85), rgba(10,15,25,0.9)), url('fondo.png') center/cover no-repeat fixed;
+  color: #f1f5f9;
+  backdrop-filter: blur(4px);
 }
 
-/* ================= HEADER ================= */
+.hidden {
+  display: none;
+}
+
+.app {
+  max-width: 520px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* HEADER */
 .app-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
 }
 
-.header-controls {
-    display: flex;
-    gap: 10px;
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-select {
-    padding: 8px;
-    border-radius: 8px;
-    border: none;
-    background: var(--card);
-    color: white;
+.logo {
+  width: 42px;
+  filter: drop-shadow(0 0 8px rgba(59,130,246,0.6));
 }
 
-/* ================= BOTONES ================= */
-button {
-    padding: 8px 14px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: 0.2s ease;
+h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
-.primary-btn {
-    background: var(--accent);
-    color: white;
+select, input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  margin-bottom: 12px;
+  transition: 0.3s ease;
 }
 
-.primary-btn:hover {
-    background: var(--accent-dark);
+select:focus, input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
 }
 
-.secondary-btn {
-    background: #334155;
-    color: white;
-}
-
-.secondary-btn:hover {
-    background: #475569;
-}
-
-/* ================= TARJETAS ================= */
+/* CARD */
 .card {
-    background: var(--card);
-    padding: 25px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    margin-bottom: 20px;
+  background: rgba(20,25,40,0.85);
+  padding: 22px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.05);
+  animation: fadeIn 0.4s ease;
 }
 
-.meta-text {
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 15px;
+.meta {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-bottom: 15px;
 }
 
-/* ================= PASOS ================= */
+/* STEPS */
 .step {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  transition: 0.25s ease;
+}
+
+.step:hover {
+  background: rgba(59,130,246,0.1);
+  transform: translateX(4px);
+}
+
+.step input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #22c55e;
 }
 
 .sub-step {
-    margin-left: 30px;
+  margin-left: 25px;
+  background: rgba(255,255,255,0.03);
 }
 
-/* Checkbox profesional personalizado */
-.step input[type="checkbox"] {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--accent);
-    border-radius: 6px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.2s ease;
-}
-
-.step input[type="checkbox"]:checked {
-    background: var(--success);
-    border-color: var(--success);
-}
-
-.step input[type="checkbox"]:checked::after {
-    content: "✓";
-    color: white;
-    font-size: 14px;
-}
-
-/* ================= PROGRESO ================= */
-.progress-wrapper {
-    margin-top: 20px;
+/* PROGRESS */
+.progress {
+  margin-top: 20px;
 }
 
 .progress-bar {
-    width: 100%;
-    height: 10px;
-    background: #334155;
-    border-radius: 20px;
-    overflow: hidden;
+  background: rgba(255,255,255,0.08);
+  height: 14px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.5);
 }
 
 #progressFill {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, var(--success), #16a34a);
-    transition: width 0.3s ease;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #22c55e, #3b82f6);
+  transition: width 0.4s ease;
 }
 
 #progressText {
-    font-size: 13px;
-    color: var(--muted);
+  display: block;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  text-align: right;
+  opacity: 0.8;
 }
 
-/* ================= UTILIDADES ================= */
-.hidden {
-    display: none;
+/* NAV */
+.nav {
+  margin-top: 25px;
+  display: flex;
+  gap: 12px;
+}
+
+button {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: 0.25s ease;
+}
+
+.primary {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(59,130,246,0.4);
+}
+
+.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(59,130,246,0.6);
+}
+
+.secondary {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+.secondary:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* DESKTOP */
+@media (min-width: 768px) {
+  .app {
+    max-width: 650px;
+  }
+
+  .app-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
